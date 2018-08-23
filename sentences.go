@@ -1,4 +1,4 @@
-package remember
+package rememberizer
 
 type Sentences map[string]string
 
