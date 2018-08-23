@@ -6,7 +6,7 @@ import "strings"
 // Default sentences is English
 func ToSentences(s string, sentences *Sentences) []string {
 	if sentences == nil {
-		*sentences = English
+		sentences = &English
 	}
 	out := strings.Split(s, "")
 	for idx := range out {
