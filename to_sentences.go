@@ -10,9 +10,15 @@ func ToSentences(s string, sentences *Sentences) []string {
 	}
 	out := strings.Split(s, "")
 	for idx := range out {
-		k, ok := (*sentences)[out[idx]]
+		c := out[idx]
+		lowerC := strings.ToLower(c)
+		sentence, ok := (*sentences)[lowerC]
 		if ok {
-			out[idx] = k
+			if c == lowerC {
+				out[idx] = sentence
+			} else {
+				out[idx] = strings.ToUpper(sentence)
+			}
 		}
 	}
 	return out
