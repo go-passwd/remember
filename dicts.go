@@ -1,9 +1,23 @@
 package rememberizer
 
-type Sentences map[string]string
+import "strings"
 
-// English map
-var English = Sentences{
+type Dict map[string]string
+
+func (d *Dict) Get(key string) string {
+	lowerKey := strings.ToLower(key)
+	word, ok := (*d)[lowerKey]
+	if ok {
+		if key == lowerKey {
+			return word
+		}
+		return strings.ToUpper(word)
+	}
+	return key
+}
+
+// English dict
+var English = Dict{
 	"a": "apple",
 	"b": "bestbuy",
 	"c": "coffee",
