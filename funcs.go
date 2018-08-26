@@ -3,10 +3,10 @@ package rememberizer
 import "strings"
 
 // ToWords convert string to easy to remember sentences using dict
-// Default dict is English
+// Default dict is EnglishDict
 func ToWords(s string, dict *Dict) []string {
 	if dict == nil {
-		dict = &English
+		dict = EnglishDict
 	}
 	sentence := strings.Split(s, "")
 	for idx, char := range sentence {
